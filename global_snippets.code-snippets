@@ -1,0 +1,16 @@
+{
+	"checkmark": {
+		"prefix": "checkmark",
+		"body": [
+			"✓"
+		],
+		"description": "Unicode checkmark"
+	},
+	"Divider": {
+		"prefix": "---",
+		"body": [
+			"// ------------ $0 ------------"
+		],
+		"description": "Divide blocks of code"
+	},
+}

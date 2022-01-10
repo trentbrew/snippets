@@ -1,0 +1,262 @@
+{
+  // ------------ basics ------------
+
+  "if-else conditional": {
+    "prefix": "ifelse",
+    "body": ["if ($1) {", "\t$2", "} else {", "\t$3", "}"],
+    "description": "Generates if-else conditional"
+  },
+
+  "children: []": {
+    "prefix": "children",
+    "body": ["children: [", "\t$0", "],"],
+    "description": "Children array"
+  },
+
+  // ------------ New Screen ------------
+
+  "new flutter screen": {
+    "prefix": "new screen",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "",
+      "class ${1:NewScreen} extends StatelessWidget {",
+      "",
+      "  @override",
+      "  Widget build(BuildContext context) {",
+      "    return const Scaffold(",
+      "      body: Center(child: Text('👋🏾 welcome to your new screen'),),",
+      "    );",
+      "  }",
+      "}"
+    ],
+    "description": "Generates new Flutter screen as statelss widget"
+  },
+
+  // ------------ Text ------------
+
+  "Text() widget": {
+    "prefix": "text",
+    "body": ["Text(", "\t$1", ")"],
+    "description": "Plain old text"
+  },
+  "Header1": {
+    "prefix": "h1",
+    "body": [
+      "Text(",
+      "  '$1',",
+      "  style: Theme.of(context).textTheme.h1,",
+      ")"
+    ],
+    "description": "Generates header text widget"
+  },
+
+  // ------------ UI ------------
+
+  "Column() centered": {
+    "prefix": "centered column",
+    "body": [
+      "Column(",
+      "\tmainAxisAlignment: MainAxisAlignment.center,",
+      "\tcrossAxisAlignment: CrossAxisAlignment.center,",
+      "\tchildren: [",
+      "\t\t$0",
+      "],",
+      ")"
+    ],
+    "description": "Create new column with centered content"
+  },
+  "TextButton": {
+    "prefix": ["button", "text button"],
+    "body": [
+      "child: TextButton(",
+      "// ignore: prefer_const_constructors",
+      "style: ButtonStyle(",
+      "backgroundColor: MaterialStateProperty.all<Color>(color_main.withOpacity(0.15)),",
+      "shape: MaterialStateProperty.all<RoundedRectangleBorder>(",
+      "RoundedRectangleBorder(",
+      "borderRadius: BorderRadius.circular(32.0),",
+      "),",
+      "),",
+      "),",
+      "child: const Padding(",
+      "padding: EdgeInsets.only(left: 8.0, right: 8.0),",
+      "child: Text(",
+      "'Okay!',",
+      "style: TextStyle(",
+      "color: const Color(0xff4dc591)",
+      ")",
+      "),",
+      "),",
+      "onPressed: () {",
+      "print('hi');",
+      "}",
+      "),"
+    ],
+    "description": "generates a smol text button"
+  },
+  "ElevatedButton()": {
+    "prefix": "button elevated",
+    "body": [
+      "ElevatedButton(",
+      "  child: const Text('click me!'),",
+      "  onPressed: () {",
+      "    $0",
+      "  }",
+      ")"
+    ],
+    "description": "Generates elevated button"
+  },
+  "padding-left": {
+    "prefix": ["padding-left", "left"],
+    "body": ["padding: const EdgeInsets.only(left: ${1:10.0}),"],
+    "description": "Generates left padding"
+  },
+  "padding-right": {
+    "prefix": ["padding-right", "right"],
+    "body": ["padding: const EdgeInsets.only(right: ${1:10.0}),"],
+    "description": "Generates left padding"
+  },
+  "padding-top": {
+    "prefix": ["padding-top", "top"],
+    "body": ["padding: const EdgeInsets.only(top: ${1:10.0}),"],
+    "description": "Generates left padding"
+  },
+  "padding-bottom": {
+    "prefix": ["padding-bottom", "bottom"],
+    "body": ["padding: const EdgeInsets.only(bottom: ${1:10.0}),"],
+    "description": "Generates bottom padding"
+  },
+  "padding inset": {
+    "prefix": "padding inset",
+    "body": ["padding: const EdgeInsets.all(${1:10.0}),"],
+    "description": "Generates inset padding"
+  },
+  "border radius": {
+    "prefix": "border radius",
+    "body": ["borderRadius: BorderRadius.circular(${1:10.0}),"],
+    "description": "Generates border radius"
+  },
+  "color": {
+    "prefix": "color",
+    "body": ["color: const Color(0xff${1:000000}),"],
+    "description": "Generates color object"
+  },
+  "BoxDecoration()": {
+    "prefix": "box decoration",
+    "body": ["decoration: BoxDecoration(", "\t$0", "),"],
+    "description": "Generates box decoration"
+  },
+  "badge": {
+    "prefix": "badge",
+    "body": [
+      "Container(",
+      "  decoration: BoxDecoration(",
+      "    color: const Color(0xffff0000), // red",
+      "    borderRadius: BorderRadius.circular(24.0),",
+      "  ),",
+      "  padding: const EdgeInsets.all(10.0),",
+      "  child: Text(",
+      "    '1'",
+      "  )",
+      "),"
+    ],
+    "description": "Generates notification badge"
+  },
+
+  // ------------ interactions ------------
+
+  "onTap: () => {}": {
+    "prefix": "tap",
+    "body": ["onTap: () {", "  $0", "}"],
+    "description": "onTap()"
+  },
+
+  // ------------ routing ------------
+
+  "navigate to route": {
+    "prefix": "navigate",
+    "body": ["Navigator.pushReplacementNamed(context, '/$0');"],
+    "description": "Navigator.push to new screen"
+  },
+
+  // ------------ async ------------
+
+  "import async": {
+    "prefix": "import async",
+    "body": ["import 'dart:async';"],
+    "description": "Import Dart async package"
+  },
+  "Future": {
+    "prefix": "future",
+    "body": ["Future<${1:type}> ${2:fn}() async {", "	$0", "}"],
+    "description": "Async function"
+  },
+
+  // ------------ firebase ------------
+
+  "StreamBuilder() + ListView <Firestore>": {
+    "prefix": "firebase firestore streambuilder listview",
+    "body": [
+      "StreamBuilder(",
+      "  stream: FirebaseFirestore.instance.collection('${1:my_collection}').snapshots(),",
+      "  builder: (context, snapshot) {",
+      "    if (!snapshot.hasData) return const Text('loading...');",
+      "    return ListView.builder(",
+      "      itemExtent: 80.0,",
+      "      itemCount: snapshot.data!.docs.length,",
+      "      itemBuilder: (context, index) => _buildListItem(context, snapshot.data!.docs[index]),",
+      "    );",
+      "  }",
+      ")"
+    ],
+    "description": "Generate ListView.builder for dynamic Firestore data"
+  },
+  "buildListItem()": {
+    "prefix": "build list item",
+    "body": [
+      "Widget _buildListItem(BuildContext context, DocumentSnapshot doc) {",
+      "  return ListTile(",
+      "    title: Row(",
+      "      children: [",
+      "        Expanded(",
+      "          child: Text(",
+      "            doc['$1'],",
+      "          ),",
+      "        ),",
+      "      ],",
+      "    ),",
+      "    onTap: () {",
+      "		  $0",
+      "    },",
+      "  );",
+      "}"
+    ],
+    "description": "Generates list item builder"
+  },
+  "firestore transaction": {
+    "prefix": "transaction db update",
+    "body": [
+      "FirebaseFirestore.instance.runTransaction((transaction) async {",
+      "  DocumentSnapshot freshSnap = await transaction.get(doc.reference);",
+      "  transaction.update(freshSnap.reference, {",
+      "    '${1:key}': ${2:value}",
+      "  });",
+      "});"
+    ],
+    "description": "Generate Firestore transaction to update db"
+  },
+  "firestore screen": {
+    "prefix": ["firestore screen"],
+    "body": [],
+    "description": ""
+  },
+  "logout": {
+    "prefix": ["logout", "signout"],
+    "body": [
+      "await auth.signOut();",
+      "Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);"
+    ],
+    "description": "take a hike"
+  }
+}

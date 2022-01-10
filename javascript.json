@@ -1,0 +1,108 @@
+{
+  "string cat": {
+    "prefix": "${}",
+    "body": ["${$0}"],
+    "description": "concat variable to string"
+  },
+
+  "forloop": {
+    "prefix": ["for", "forloop"],
+    "body": ["for (i = 0; ${1:i < arr.length}; i++) {", "\t$0", "}"],
+    "description": ""
+  },
+
+  "console.log": {
+    "prefix": ["console.log", "log"],
+    "body": ["console.log(`$0`);"],
+    "description": "logs to the console"
+  },
+
+  "labelled console.log": {
+    "prefix": [
+      "log labelled",
+      "labelled",
+      "label",
+      "console label",
+      "consolabel",
+      "console.label"
+    ],
+    "body": ["console.log('${1:label}', $2);"],
+    "description": "generates labeled console.log"
+  },
+
+  "blue console.log": {
+    "prefix": "blue log",
+    "body": ["console.log('\\x1b[94m%s\\x1b[0m', `$1`);  //blue"],
+    "description": "Log blue output to console"
+  },
+  "cyan console.log": {
+    "prefix": "cyan log",
+    "body": ["console.log('\\x1b[36m%s\\x1b[0m', `$1`);  //cyan"],
+    "description": "Log cyan output to console"
+  },
+  "green console.log": {
+    "prefix": "green log",
+    "body": ["console.log('\\x1b[32m%s\\x1b[0m', `$1`);  //green"],
+    "description": "Log green output to console"
+  },
+  "yellow console.log": {
+    "prefix": "yellow log",
+    "body": ["console.log('\\x1b[33m%s\\x1b[0m', `$1`);  //yellow"],
+    "description": "Log yellow output to console"
+  },
+  "red console.log": {
+    "prefix": "red log",
+    "body": ["console.log('\\x1b[91m%s\\x1b[0m', `$1`);  //red"],
+    "description": "Log red output to console"
+  },
+  "pink console.log": {
+    "prefix": "pink log",
+    "body": ["console.log('\\x1b[35m%s\\x1b[0m', `$1`);  //pink"],
+    "description": "Log pink output to console"
+  },
+  "clear the console": {
+    "prefix": "clear",
+    "body": ["console.clear();$0"],
+    "description": "Clears console"
+  },
+
+  "eslint disable line": {
+    "prefix": "ugh",
+    "body": ["// eslint-disable-line"],
+    "description": "Disables eslint for current line"
+  },
+
+  "document path": {
+    "prefix": ["path", "current path"],
+    "body": ["'$TM_FILEPATH'"],
+    "description": "get file path of current document"
+  },
+
+  "random int": {
+    "prefix": ["random int"],
+    "body": [
+      "function random(max) {",
+      "\treturn Math.floor(Math.random() * max);",
+      "}"
+    ],
+    "description": "random integer between zero & max"
+  },
+
+  "then": {
+    "prefix": ["then"],
+    "body": [".then(($1) => {", "$2", "});"],
+    "description": "random integer between zero & max"
+  },
+
+  "timeout": {
+    "prefix": ["timeout"],
+    "body": ["setTimeout(() => {", "\t$2", "}, ${1:duration});"],
+    "description": "random integer between zero & max"
+  },
+
+  "token": {
+    "prefix": ["token", "staging", "staging token"],
+    "body": ["'ef893d003f4bbe93d7cec956d362fbd061292977'"],
+    "description": "staging token"
+  }
+}
