@@ -1,60 +1,77 @@
 {
-  "Component template": {
-    "prefix": ["vew", "new vue"],
-    "body": [
-      "<template>",
-      "$2",
-      "</template>",
-      "",
-      "<script>",
-      "export default {",
-      "\tname: '$1',",
-      "\tcomponents: {",
-      "\t\t$0",
-      "\t},",
-      "\tdata() {",
-      "\t\treturn {",
-      "\t\t\t",
-      "\t\t}",
-      "\t},",
-      "\tprops: {",
-      "\t\t",
-      "\t},",
-      "\tcomputed: {",
-      "\t\t",
-      "\t},",
-      "\tmethods: {",
-      "\t\t",
-      "\t}",
-      "\t",
-      "}",
-      "</script>",
-      "",
-      "<style lang='scss' scoped>",
-      "",
-      "</style>"
-    ],
-    "description": "Generate new mocha flavoured Vue component template"
-  },
-  "Import inline.js": {
-    "prefix": "inline",
-    "body": ["import inline from '@/assets/scss/inline';"],
-    "description": "Imports inline.js lib"
-  },
-  "Force Update": {
-    "prefix": "force",
-    "body": ["this.$forceUpdate();$0"],
-    "description": "Forces re-render"
-  },
-  "labelled console.log": {
-    "prefix": [
-      "consolabel",
-      "console.label",
-      "log labelled",
-      "labelled",
-      "label"
-    ],
-    "body": ["console.log('${1:label}', $2);"],
-    "description": "generates labeled console.log"
+	"New component (Vue 2.x)": {
+	  "prefix": ["vew2", "new vue 2"],
+	  "body": [
+		"<script>",
+		"export default {",
+		"\tname: '$1',",
+		"\tcomponents: {",
+		"\t\t$0",
+		"\t},",
+		"\tdata() {",
+		"\t\treturn {",
+		"\t\t\t",
+		"\t\t}",
+		"\t},",
+		"\tprops: {",
+		"\t\t",
+		"\t},",
+		"\tcomputed: {",
+		"\t\t",
+		"\t},",
+		"\tmethods: {",
+		"\t\t",
+		"\t}",
+		"\t",
+		"}",
+		"</script>",
+		"\t",
+		"<template>",
+		"$2",
+		"</template>",
+		"",
+		"<style lang='scss' scoped>",
+		"",
+		"</style>"
+	  ],
+	  "description": "Generate new mocha flavoured Vue component template (Vue 2.x)"
+	},
+	"New component (Vue 3.x)": {
+		"prefix": ["vew", "vew3", "new vue 3"],
+		"body": [
+			"<script setup>",
+			"import { ref, onMounted, watch } from 'vue';",
+			"$1",
+			"</script>",
+			"",
+			"<template>",
+			"\t$2",
+			"</template>",
+			"",
+			"<style lang='scss' scoped>",
+			"",
+			"</style>"
+		],
+		"description": "Generate new mocha flavoured Vue component template (Vue 3.x)"
+	},
+	"Force Update": {
+	  "prefix": "force",
+	  "body": ["this.$forceUpdate();$0"],
+	  "description": "Forces re-render"
+	},
+	"v-for": {
+		"prefix": ["v-for"],
+		"body": ["v-for=\"(item, index) in $0\" :key=\"index\""],
+		"description": "v-for"
+	},
+	"{{ ... }}": {
+		"prefix": ["{", "{{", "{}", "{{}}"],
+		"body": ["{{ $0 }}"],
+		"description": "{{ ... }}"
+	},
+	"class='...'": {
+		"prefix": ["class"],
+		"body": ["class=\"$0\""],
+		"description": "class attribute"
+	},
   }
-}
