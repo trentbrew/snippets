@@ -1,16 +1,26 @@
 {
-	"checkmark": {
-		"prefix": "checkmark",
-		"body": [
-			"✓"
-		],
-		"description": "Unicode checkmark"
-	},
-	"Divider": {
-		"prefix": "---",
-		"body": [
-			"// ------------ $0 ------------"
-		],
-		"description": "Divide blocks of code"
-	},
+		"Snippet": {
+			"prefix": ["/snippet", "snippet"],
+			"body": [
+				"\"${1:Name}\": {",
+				"\t\"prefix\": [\"/${2:prefix}\"],",
+				"\t\"body\": [",
+				"\t\t\"${3:Body}\"",
+				"\t],",
+				"}",
+			]
+		},
+		"Checkmark": {
+			"prefix": ["/checkmark", "checkmark"],
+			"body": [
+				"✓"
+			],
+		},
+		"Divider": {
+			"prefix": ["/----", "/divider", "----", "divider"],
+			"body": [
+				"// ------------ $0 ------------"
+			],
+		},
 }
+
